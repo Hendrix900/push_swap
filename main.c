@@ -6,31 +6,60 @@
 /*   By: ccastill <ccastill@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 02:35:48 by ccastill          #+#    #+#             */
-/*   Updated: 2021/05/13 03:59:22 by ccastill         ###   ########.fr       */
+/*   Updated: 2021/05/14 00:05:12 by ccastill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "push_swap.h"
+
+void    print_error(char *s, int *argv_numbers)
+{
+	perror(s);
+    free(argv_numbers);
+	exit(-1);
+}
+
+int     check_digit_argv(char argv[])
+{
+    int l;
+
+    l = 0;
+    while(argv[l])
+    {
+        if (argv[l] >= 48 && argv[l] <= 57)
+            l++;
+        else if (argv[l] == '-' && argv[l+1] >= 48 && argv[l + 1] <= 57)
+            l++;
+        else
+            return(-1);
+    }    
+}
 
 int     main(int argc, char *argv[])
 {
-    int *argv_numbers = malloc(sizeof(int) * argc - 1);
     int l;
-    int n;  
+    int n;
+    int error;
+    int *argv_numbers = malloc(sizeof(int) * argc - 1);
     
     l = 1;
     n = 0;
+    if (argc < 2)
+        print_error("ERROR", argv_numbers);
     while (l != argc)
     {
-        argv_numbers[n] = atoi(argv[l]);
+        error = check_digit_argv(argv[l]);
+        if (error == -1)
+            print_error("ERROR", argv_numbers);
+        argv_numbers[n] = ft_atoi(argv[l]);
         l++;
         n++; 
     }
     n = 0;
-    while (argv_numbers[n] != '\0')
+    printf("Stack A:\n");
+    while (n != argc - 1)
     {
-        printf("tiene : %d\n", argv_numbers[n]);
+        printf("%d\n", argv_numbers[n]);
         n++; 
     }
     free(argv_numbers);
