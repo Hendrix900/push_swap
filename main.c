@@ -6,7 +6,7 @@
 /*   By: ccastill <ccastill@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 02:35:48 by ccastill          #+#    #+#             */
-/*   Updated: 2021/05/14 23:43:00 by ccastill         ###   ########.fr       */
+/*   Updated: 2021/05/15 00:00:43 by ccastill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	init_ctrl_parameters(int argc, t_control *ctrl)
 	ctrl->n_movments = 0;
 	ctrl->error = 0;
 	ctrl->n_elem_stack = argc - 1;
-	ctrl->stack_a = malloc(sizeof(int) * argc - 1);
-	ctrl->stack_b = malloc(sizeof(int) * argc - 1);
+	ctrl->stack_a = malloc(sizeof(int) * ctrl->n_elem_stack);
+	ctrl->stack_b = malloc(sizeof(int) * ctrl->n_elem_stack);
 	ctrl->stack_sorted = malloc(sizeof(int) * argc - 1);
 }
 

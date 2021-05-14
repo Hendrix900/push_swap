@@ -6,7 +6,7 @@
 /*   By: ccastill <ccastill@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 21:08:02 by ccastill          #+#    #+#             */
-/*   Updated: 2021/05/14 23:35:57 by ccastill         ###   ########.fr       */
+/*   Updated: 2021/05/15 00:01:53 by ccastill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	repeated_number(int *argv_base, t_control *ctrl)
 	int	l;
 
 	l = 0;
-	while (l < ctrl->n_elem_stack && ctrl->n_elem_stack > 1)
+	while (l < ctrl->n_elem_stack -1 && ctrl->n_elem_stack > 1)
 	{
 		if (argv_base[l] == argv_base[l + 1])
 			return (-1);
@@ -26,7 +26,7 @@ int	repeated_number(int *argv_base, t_control *ctrl)
 	return (0);
 }
 
-int	*buble_stack_organized(int *argv_base, t_control *ctrl)
+int	*buble_stack_sorted(int *argv_base, t_control *ctrl)
 {
 	int	i;
 	int	j;
@@ -87,7 +87,7 @@ int	check_argv(char **argv, t_control *ctrl)
 		l++;
 		n++;
 	}
-	ctrl->stack_sorted = buble_stack_organized(ctrl->stack_sorted, ctrl);
+	ctrl->stack_sorted = buble_stack_sorted(ctrl->stack_sorted, ctrl);
 	ctrl->error = repeated_number(ctrl->stack_sorted, ctrl);
 	if (ctrl->error == -1)
 		p_error_exit("ERROR Number repeated", ctrl);
