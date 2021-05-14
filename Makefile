@@ -6,7 +6,7 @@
 #    By: ccastill <ccastill@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/13 02:26:15 by ccastill          #+#    #+#              #
-#    Updated: 2021/05/14 22:09:54 by ccastill         ###   ########.fr        #
+#    Updated: 2021/05/14 23:36:21 by ccastill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ INCLUDES = push_swap.h ./lib/libft/libft.h
 
 FLAGS = gcc -I -Wall -Wextra -Werror -g
 
-FUN = main.c check_argv.c p_error_exit.c
+FUN = main.c check_argv.c p_error_exit.c ft_atoi_range.c
 	
 OBJ = $(FUN:.c=.o)
 

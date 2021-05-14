@@ -6,7 +6,7 @@
 /*   By: ccastill <ccastill@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 21:08:02 by ccastill          #+#    #+#             */
-/*   Updated: 2021/05/14 22:22:40 by ccastill         ###   ########.fr       */
+/*   Updated: 2021/05/14 23:35:57 by ccastill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int	*buble_stack_organized(int *argv_base, t_control *ctrl)
 		{
 			if (argv_base[j] > argv_base[j + 1])
 			{
+				ctrl->n_movments++;
 				temp = argv_base[j];
 				argv_base[j] = argv_base[j + 1];
 				argv_base[j + 1] = temp;
@@ -81,13 +82,13 @@ int	check_argv(char **argv, t_control *ctrl)
 		ctrl->error = check_ifdigit_argv(argv[l], ctrl);
 		if (ctrl->error == -1)
 			p_error_exit("ERROR some parameter is not a digit", ctrl);
-		ctrl->stack_original[n] = ft_atoi(argv[l]);
-		ctrl->stack_organized[n] = ft_atoi(argv[l]);
+		ctrl->stack_a[n] = ft_atoi_range(argv[l], ctrl);
+		ctrl->stack_sorted[n] = ft_atoi_range(argv[l], ctrl);
 		l++;
 		n++;
 	}
-	ctrl->stack_organized = buble_stack_organized(ctrl->stack_organized, ctrl);
-	ctrl->error = repeated_number(ctrl->stack_organized, ctrl);
+	ctrl->stack_sorted = buble_stack_organized(ctrl->stack_sorted, ctrl);
+	ctrl->error = repeated_number(ctrl->stack_sorted, ctrl);
 	if (ctrl->error == -1)
-		p_error_exit("Number repeated", ctrl);
+		p_error_exit("ERROR Number repeated", ctrl);
 }

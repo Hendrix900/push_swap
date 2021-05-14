@@ -6,33 +6,42 @@
 /*   By: ccastill <ccastill@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 02:35:48 by ccastill          #+#    #+#             */
-/*   Updated: 2021/05/14 22:24:09 by ccastill         ###   ########.fr       */
+/*   Updated: 2021/05/14 23:43:00 by ccastill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	init_ctrl_parameters(int argc, t_control *ctrl)
+{
+	ctrl->n_movments = 0;
+	ctrl->error = 0;
+	ctrl->n_elem_stack = argc - 1;
+	ctrl->stack_a = malloc(sizeof(int) * argc - 1);
+	ctrl->stack_b = malloc(sizeof(int) * argc - 1);
+	ctrl->stack_sorted = malloc(sizeof(int) * argc - 1);
+}
 
 int	main(int argc, char **argv)
 {
 	t_control	ctrl;
 	int			n;
 
-	ctrl.error = 0;
-	ctrl.n_elem_stack = argc - 1;
-	ctrl.stack_original = malloc(sizeof(int) * argc - 1);
-	ctrl.stack_organized = malloc(sizeof(int) * argc - 1);
+	init_ctrl_parameters(argc, &ctrl);
 	if (argc < 2)
-		p_error_exit("ERROR MENOS DE 2 ARGUMENTOS", &ctrl);
+		p_error_exit("ERROR The number of arguments are incorrect", &ctrl);
 	check_argv(argv, &ctrl);
-	printf("Stack A             -------------            Stack B\n");
+	printf("Stack A            -------------        Stack Sorted\n");
 	n = 0;
 	while (n != argc - 1)
 	{
 		printf("%d                  -------------                 %d\n",
-			ctrl.stack_original[n], ctrl.stack_organized[n]);
+			ctrl.stack_a[n], ctrl.stack_sorted[n]);
 		n++;
 	}
-	free(ctrl.stack_original);
-	free(ctrl.stack_organized);
+	printf("numero de movimientos es : %d\n", ctrl.n_movments);
+	free(ctrl.stack_a);
+	free(ctrl.stack_b);
+	free(ctrl.stack_sorted);
 	return (0);
 }
