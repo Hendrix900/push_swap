@@ -6,7 +6,7 @@
 #    By: ccastill <ccastill@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/13 02:26:15 by ccastill          #+#    #+#              #
-#    Updated: 2021/05/13 23:30:47 by ccastill         ###   ########.fr        #
+#    Updated: 2021/05/14 22:09:54 by ccastill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ INCLUDES = push_swap.h ./lib/libft/libft.h
 
 FLAGS = gcc -I -Wall -Wextra -Werror -g
 
-FUN = main.c
+FUN = main.c check_argv.c p_error_exit.c
 	
 OBJ = $(FUN:.c=.o)
 
@@ -42,7 +42,9 @@ re: clean fclean all
 norma:
 	@echo "\e[42m------ NOrminette version ------\e[0m"
 	norminette -v
-	
+	@echo
+	@echo "\e[42m------ main path ------\e[0m"
+	norminette ./
 	@echo
 	@echo "\e[42m------ get_next_line ------\e[0m"
 	norminette lib/get_next_line
