@@ -6,7 +6,7 @@
 /*   By: ccastill <ccastill@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 02:31:39 by ccastill          #+#    #+#             */
-/*   Updated: 2021/05/15 02:23:25 by ccastill         ###   ########.fr       */
+/*   Updated: 2021/05/15 14:09:13 by ccastill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,4 @@ void			rotate_rev_b(t_control *crtl);
 void			rotate_rev_ab(t_control *crtl);
 void			push_a(t_control *crtl);
 void			push_b(t_control *crtl);
-
-
-
-
-
-
-
 #endif

@@ -6,7 +6,7 @@
 /*   By: ccastill <ccastill@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 02:35:48 by ccastill          #+#    #+#             */
-/*   Updated: 2021/05/15 02:35:59 by ccastill         ###   ########.fr       */
+/*   Updated: 2021/05/15 14:14:51 by ccastill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	init_ctrl_parameters(int argc, t_control *ctrl)
 {
+	int	l;
+
 	ctrl->n_movments = 0;
 	ctrl->error = 0;
 	ctrl->n_elem_stack_a = argc - 1;
@@ -21,10 +23,8 @@ void	init_ctrl_parameters(int argc, t_control *ctrl)
 	ctrl->stack_a = malloc(sizeof(int) * ctrl->n_elem_stack_a);
 	ctrl->stack_b = malloc(sizeof(int) * ctrl->n_elem_stack_a);
 	ctrl->stack_sorted = malloc(sizeof(int) * argc - 1);
-
-	int l;
-
 	l = 0;
+	
 	while(l != ctrl->n_elem_stack_a )
 	{
 		ctrl->stack_b[l] = 0;
@@ -49,15 +49,26 @@ int	main(int argc, char **argv)
 			ctrl.stack_a[n], ctrl.stack_sorted[n]);
 		n++;
 	}
-	push_b(&ctrl); ///-----------------------
-	n = 0;
+	//---- Instruccions ----//
+	push_b(&ctrl); 
+	push_b(&ctrl); 
+	swap_ab(&ctrl); 
 	printf("\n\n");
-	while (n != argc - 1)
+	n = 0;
+	printf("Stack A\n");
+	while (n != ctrl.n_elem_stack_a)
 	{
-		printf("%d                  -------------                 %d\n",
-			ctrl.stack_a[n], ctrl.stack_sorted[n]);
+		printf("%d\n",ctrl.stack_a[n]);
 		n++;
 	}
+	n = 0;
+	printf("Stack B\n");
+	while (n != ctrl.n_elem_stack_b)
+	{
+		printf("%d\n",ctrl.stack_b[n]);
+		n++;
+	}
+	
 	printf("Numero de movimientos: %d\n", ctrl.n_movments);
 	printf("Numero de elementos en argv: %d\n", ctrl.n_elem_stack_a);
 	free(ctrl.stack_a);

@@ -6,55 +6,55 @@
 /*   By: ccastill <ccastill@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/15 01:39:51 by ccastill          #+#    #+#             */
-/*   Updated: 2021/05/15 01:57:31 by ccastill         ###   ########.fr       */
+/*   Updated: 2021/05/15 14:07:57 by ccastill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static void    rotate(int n_elem, int *stack)
+static void	rotate(int n_elem, int *stack)
 {
-	int tmp;
-    int l;
-    int first;
+	int	tmp;
+	int	l;
+	int	first;
 
-    tmp = 0;
-    first = 0;
-    l = 0;
-    first = stack[0];
-    while (l != n_elem)
-    {
-	    stack[l] = stack[l + 1];
-        l++;       
-    }
-	stack[n_elem] = first;    
+	tmp = 0;
+	first = 0;
+	l = 0;
+	first = stack[0];
+	while (l != n_elem)
+	{
+		stack[l] = stack[l + 1];
+		l++;
+	}
+	stack[n_elem] = first;
 }
 
-void rotate_a(t_control *crtl)
+void	rotate_a(t_control *crtl)
 {
-    int n_elem;
-    
-    n_elem = crtl->n_elem_stack_a - 1;
-    rotate(n_elem ,crtl->stack_a);
-    ft_putstr_fd("ra\n", 1);
+	int	n_elem;
+
+	n_elem = crtl->n_elem_stack_a - 1;
+	rotate(n_elem, crtl->stack_a);
+	ft_putstr_fd("ra\n", 1);
 }
 
-void rotate_b(t_control *crtl)
+void	rotate_b(t_control *crtl)
 {
-    int n_elem;
-    
-    n_elem = crtl->n_elem_stack_b - 1;
-    rotate(n_elem ,crtl->stack_b);
-    ft_putstr_fd("rb\n", 1);
+	int	n_elem;
+
+	n_elem = crtl->n_elem_stack_b - 1;
+	rotate(n_elem, crtl->stack_b);
+	ft_putstr_fd("rb\n", 1);
 }
 
-void rotate_ab(t_control *crtl)
+void	rotate_ab(t_control *crtl)
 {
-    int n_elem;
-    
-    n_elem = crtl->n_elem_stack_a - 1;
-    rotate(n_elem, crtl->stack_a);
-    n_elem = crtl->n_elem_stack_b - 1;
-	rotate(n_elem,crtl->stack_b);
+	int	n_elem;
+
+	n_elem = crtl->n_elem_stack_a - 1;
+	rotate(n_elem, crtl->stack_a);
+	n_elem = crtl->n_elem_stack_b - 1;
+	rotate(n_elem, crtl->stack_b);
 	ft_putstr_fd("rr\n", 1);
 }
