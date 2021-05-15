@@ -6,7 +6,7 @@
 /*   By: ccastill <ccastill@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 02:35:48 by ccastill          #+#    #+#             */
-/*   Updated: 2021/05/15 14:14:51 by ccastill         ###   ########.fr       */
+/*   Updated: 2021/05/15 14:21:15 by ccastill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		prnt_error_exit("ERROR The number of arguments are incorrect", &ctrl);
 	check_argv(argv, &ctrl);
+	
+	// ------ Print Stack A and Stack Sorted ---- //
 	printf("Stack A            -------------        Stack Sorted\n");
 	n = 0;
 	while (n != argc - 1)
@@ -49,11 +51,14 @@ int	main(int argc, char **argv)
 			ctrl.stack_a[n], ctrl.stack_sorted[n]);
 		n++;
 	}
+	printf("\n\n");
+		
 	//---- Instruccions ----//
 	push_b(&ctrl); 
 	push_b(&ctrl); 
 	swap_ab(&ctrl); 
-	printf("\n\n");
+	
+	//---- Examples of Stack A and B after instruccions ----//
 	n = 0;
 	printf("Stack A\n");
 	while (n != ctrl.n_elem_stack_a)
@@ -69,8 +74,11 @@ int	main(int argc, char **argv)
 		n++;
 	}
 	
+	// --- Some control parameters --- ///
 	printf("Numero de movimientos: %d\n", ctrl.n_movments);
 	printf("Numero de elementos en argv: %d\n", ctrl.n_elem_stack_a);
+
+	// ---- Free memory allocated ----
 	free(ctrl.stack_a);
 	free(ctrl.stack_b);
 	free(ctrl.stack_sorted);
