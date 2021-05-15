@@ -6,7 +6,7 @@
 /*   By: ccastill <ccastill@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 21:08:02 by ccastill          #+#    #+#             */
-/*   Updated: 2021/05/15 00:01:53 by ccastill         ###   ########.fr       */
+/*   Updated: 2021/05/15 01:14:09 by ccastill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	repeated_number(int *argv_base, t_control *ctrl)
 	int	l;
 
 	l = 0;
-	while (l < ctrl->n_elem_stack -1 && ctrl->n_elem_stack > 1)
+	while (l < ctrl->n_elem_stack_a -1 && ctrl->n_elem_stack_a > 1)
 	{
 		if (argv_base[l] == argv_base[l + 1])
 			return (-1);
@@ -35,10 +35,10 @@ int	*buble_stack_sorted(int *argv_base, t_control *ctrl)
 	temp = 0;
 	i = 1;
 	j = 0;
-	while (i < ctrl->n_elem_stack)
+	while (i < ctrl->n_elem_stack_a)
 	{
 		j = 0;
-		while (j < ctrl->n_elem_stack - i)
+		while (j < ctrl->n_elem_stack_a - i)
 		{
 			if (argv_base[j] > argv_base[j + 1])
 			{
@@ -77,11 +77,11 @@ int	check_argv(char **argv, t_control *ctrl)
 
 	l = 1;
 	n = 0;
-	while (l != ctrl->n_elem_stack + 1)
+	while (l != ctrl->n_elem_stack_a + 1)
 	{
 		ctrl->error = check_ifdigit_argv(argv[l], ctrl);
 		if (ctrl->error == -1)
-			p_error_exit("ERROR some parameter is not a digit", ctrl);
+			prnt_error_exit("ERROR some parameter is not a digit", ctrl);
 		ctrl->stack_a[n] = ft_atoi_range(argv[l], ctrl);
 		ctrl->stack_sorted[n] = ft_atoi_range(argv[l], ctrl);
 		l++;
@@ -90,5 +90,5 @@ int	check_argv(char **argv, t_control *ctrl)
 	ctrl->stack_sorted = buble_stack_sorted(ctrl->stack_sorted, ctrl);
 	ctrl->error = repeated_number(ctrl->stack_sorted, ctrl);
 	if (ctrl->error == -1)
-		p_error_exit("ERROR Number repeated", ctrl);
+		prnt_error_exit("ERROR Number repeated", ctrl);
 }

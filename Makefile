@@ -6,17 +6,18 @@
 #    By: ccastill <ccastill@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/13 02:26:15 by ccastill          #+#    #+#              #
-#    Updated: 2021/05/14 23:36:21 by ccastill         ###   ########.fr        #
+#    Updated: 2021/05/15 02:23:47 by ccastill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-INCLUDES = push_swap.h ./lib/libft/libft.h
+INCLUDES = ./src/push_swap.h ./lib/libft/libft.h
 
 FLAGS = gcc -I -Wall -Wextra -Werror -g
 
-FUN = main.c check_argv.c p_error_exit.c ft_atoi_range.c
+FUN = ./src/main.c ./src/check_argv.c ./src/prnt_error_exit.c ./src/ft_atoi_range.c ./src/operations/swap.c \
+		./src/operations/rotate.c ./src/operations/rotate_reverse.c  ./src/operations/push.c
 	
 OBJ = $(FUN:.c=.o)
 
@@ -44,7 +45,7 @@ norma:
 	norminette -v
 	@echo
 	@echo "\e[42m------ main path ------\e[0m"
-	norminette ./
+	norminette ./src
 	@echo
 	@echo "\e[42m------ get_next_line ------\e[0m"
 	norminette lib/get_next_line
