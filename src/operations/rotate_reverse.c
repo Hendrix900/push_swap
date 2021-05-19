@@ -6,7 +6,7 @@
 /*   By: ccastill <ccastill@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/15 02:00:20 by ccastill          #+#    #+#             */
-/*   Updated: 2021/05/15 14:06:33 by ccastill         ###   ########.fr       */
+/*   Updated: 2021/05/19 02:00:58 by ccastill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	rotate_rev_a(t_control *crtl)
 {
 	int	n_elem;
 
-	n_elem = crtl->n_elem_stack_a - 1;
+	n_elem = crtl->n_elem_stack_a;
 	rotate_reverse(n_elem, crtl->stack_a);
 	ft_putstr_fd("rra\n", 1);
 }
@@ -44,7 +44,7 @@ void	rotate_rev_b(t_control *crtl)
 {
 	int	n_elem;
 
-	n_elem = crtl->n_elem_stack_b - 1;
+	n_elem = crtl->n_elem_stack_b;
 	rotate_reverse(n_elem, crtl->stack_b);
 	ft_putstr_fd("rrb\n", 1);
 }
@@ -53,9 +53,9 @@ void	rotate_rev_ab(t_control *crtl)
 {
 	int	n_elem;
 
-	n_elem = crtl->n_elem_stack_a - 1;
+	n_elem = crtl->n_elem_stack_a;
 	rotate_reverse(n_elem, crtl->stack_a);
-	n_elem = crtl->n_elem_stack_b - 1;
+	n_elem = crtl->n_elem_stack_b;
 	rotate_reverse(n_elem, crtl->stack_b);
 	ft_putstr_fd("rrr\n", 1);
 }

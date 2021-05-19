@@ -6,7 +6,7 @@
 #    By: ccastill <ccastill@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/13 02:26:15 by ccastill          #+#    #+#              #
-#    Updated: 2021/05/15 02:23:47 by ccastill         ###   ########.fr        #
+#    Updated: 2021/05/18 22:57:15 by ccastill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ INCLUDES = ./src/push_swap.h ./lib/libft/libft.h
 FLAGS = gcc -I -Wall -Wextra -Werror -g
 
 FUN = ./src/main.c ./src/check_argv.c ./src/prnt_error_exit.c ./src/ft_atoi_range.c ./src/operations/swap.c \
-		./src/operations/rotate.c ./src/operations/rotate_reverse.c  ./src/operations/push.c
+		./src/operations/rotate.c ./src/operations/rotate_reverse.c  ./src/operations/push.c \
+		./src/push_swap.c 
 	
 OBJ = $(FUN:.c=.o)
 

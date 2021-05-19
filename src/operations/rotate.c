@@ -6,7 +6,7 @@
 /*   By: ccastill <ccastill@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/15 01:39:51 by ccastill          #+#    #+#             */
-/*   Updated: 2021/05/15 14:07:57 by ccastill         ###   ########.fr       */
+/*   Updated: 2021/05/19 01:57:07 by ccastill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	rotate_a(t_control *crtl)
 {
 	int	n_elem;
 
-	n_elem = crtl->n_elem_stack_a - 1;
+	n_elem = crtl->n_elem_stack_a;
 	rotate(n_elem, crtl->stack_a);
 	ft_putstr_fd("ra\n", 1);
 }
@@ -43,7 +43,7 @@ void	rotate_b(t_control *crtl)
 {
 	int	n_elem;
 
-	n_elem = crtl->n_elem_stack_b - 1;
+	n_elem = crtl->n_elem_stack_b;
 	rotate(n_elem, crtl->stack_b);
 	ft_putstr_fd("rb\n", 1);
 }
@@ -52,9 +52,9 @@ void	rotate_ab(t_control *crtl)
 {
 	int	n_elem;
 
-	n_elem = crtl->n_elem_stack_a - 1;
+	n_elem = crtl->n_elem_stack_a;
 	rotate(n_elem, crtl->stack_a);
-	n_elem = crtl->n_elem_stack_b - 1;
+	n_elem = crtl->n_elem_stack_b;
 	rotate(n_elem, crtl->stack_b);
 	ft_putstr_fd("rr\n", 1);
 }
